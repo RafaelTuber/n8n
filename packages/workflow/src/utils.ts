@@ -254,11 +254,12 @@ export function randomInt(min: number, max: number): number;
  * @returns {number} A random integer within the specified range.
  */
 export function randomInt(min: number, max?: number): number {
-	if (max === undefined) {
-		max = min;
-		min = 0;
-	}
-	return min + (crypto.getRandomValues(new Uint32Array(1))[0] % (max - min));
+        if (max === undefined) {
+                max = min;
+                min = 0;
+        }
+        if (max <= min) return min;
+        return min + (crypto.getRandomValues(new Uint32Array(1))[0] % (max - min));
 }
 
 export function randomString(length: number): string;
