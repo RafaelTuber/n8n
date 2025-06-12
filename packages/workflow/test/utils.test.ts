@@ -259,13 +259,20 @@ describe('randomInt', () => {
 		});
 	});
 
-	it('should generate random in range', () => {
-		repeat(() => {
-			const result = randomInt(10, 100);
-			expect(result).toBeLessThanOrEqual(100);
-			expect(result).toBeGreaterThanOrEqual(10);
-		});
-	});
+        it('should generate random in range', () => {
+                repeat(() => {
+                        const result = randomInt(10, 100);
+                        expect(result).toBeLessThanOrEqual(100);
+                        expect(result).toBeGreaterThanOrEqual(10);
+                });
+        });
+
+       it('should return min when min equals max', () => {
+               repeat(() => {
+                       const result = randomInt(5, 5);
+                       expect(result).toBe(5);
+               });
+       });
 });
 
 describe('randomString', () => {
